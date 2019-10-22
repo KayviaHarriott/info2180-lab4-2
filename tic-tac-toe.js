@@ -1,9 +1,9 @@
 //Appear after page has fully loaded
-
 window.addEventListener('DOMContentLoaded', (event) => {
 
     //Variables
     let boxes = document.getElementById("board").children;
+    let button = document.getElementsByClassName("btn");
     //var stat = ['0','1','2','3','4','5','6','7','8'];
     var stat = [];
     var winnerMessage = 0;
@@ -49,6 +49,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             
 
         });  
+
         
         //Functions
 
@@ -60,6 +61,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         boxes[counter].addEventListener("mouseout", function(){
             boxes[counter].classList.remove("hover");
         });  
+
+          
 
         function winner(){
             if (((stat[0] == "X" && stat[1] == "X" && stat[2] == "X")) && winnerMessage == 0){
@@ -169,10 +172,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         }
 
-
-
+        //to start new game        
+        button[0].addEventListener("click", function(){
+            alert ("A NEW GAME IS STARTING!")
+            location.reload();
+        });
         
 
-    }    
+    }//end of for loop
+    
+    
 
 });
