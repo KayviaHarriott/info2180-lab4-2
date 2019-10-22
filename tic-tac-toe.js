@@ -4,8 +4,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     //Variables
     let boxes = document.getElementById("board").children;
-    //var Array = ['0','1','2','3','4','5','6','7','8'];
-    var Array = [];
+    //var stat = ['0','1','2','3','4','5','6','7','8'];
+    var stat = [];
+    var winnerMessage = 0;
     var XorY = 1; //let 1 be X and 0 be O
 
     
@@ -24,18 +25,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
         boxes[counter].addEventListener("click", function(){ 
             if (boxes[counter].innerHTML == ""){    
                 if ( XorY == 1 ){
-                    boxes[counter].innerHTML = "X" ;
+                    boxes[counter].innerHTML = "X"; //place x
+                    boxes[counter].classList.add("X");   // get attributes           
+    
                     XorY = 0; //to change clicker to O
-                    Array[counter] = "X";
+                    stat[counter] = "X";
+                    winner();
 
-                   // alert (Array);
+                   // alert (stat);
 
                 }
                 else{
                     boxes[counter].innerHTML = "O";
+                    boxes[counter].classList.add("O");   
                     XorY = 1; //to change clicker to 1
-                    Array[counter] = "O";
-                  //  alert (Array)
+                    stat[counter] = "O";
+                  //  alert (stat)
+                    winner();
 
                 }
             }
@@ -54,6 +60,117 @@ window.addEventListener('DOMContentLoaded', (event) => {
         boxes[counter].addEventListener("mouseout", function(){
             boxes[counter].classList.remove("hover");
         });  
+
+        function winner(){
+            if (((stat[0] == "X" && stat[1] == "X" && stat[2] == "X")) && winnerMessage == 0){
+                document.getElementById("status").innerHTML = "Congratulations! X is the Winner!";
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+            else if ( ((stat[0] == "O" && stat[1] == "O" && stat[2] == "O"))  && winnerMessage == 0) {
+                document.getElementById("status").innerHTML = "Congratulations! O is the Winner!" ;
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+            else if (((stat[3] == "X" && stat[4] == "X" && stat[5] == "X")) && winnerMessage == 0){
+                document.getElementById("status").innerHTML = "Congratulations! X is the Winner!";
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+            else if ( ((stat[3] == "O" && stat[4] == "O" && stat[5] == "O"))  && winnerMessage == 0) {
+                document.getElementById("status").innerHTML = "Congratulations! O is the Winner!" ;
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+            else if (((stat[6] == "X" && stat[7] == "X" && stat[8] == "X")) && winnerMessage == 0){
+                document.getElementById("status").innerHTML = "Congratulations! X is the Winner!";
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+
+            }
+            else if ( ((stat[6] == "O" && stat[7] == "O" && stat[8] == "O"))  && winnerMessage == 0) {
+                document.getElementById("status").innerHTML = "Congratulations! O is the Winner!" ;
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+
+            else if (((stat[0] == "X" && stat[3] == "X" && stat[5] == "X")) && winnerMessage == 0){
+                document.getElementById("status").innerHTML = "Congratulations! X is the Winner!";
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+            else if ( ((stat[0] == "O" && stat[3] == "O" && stat[5] == "O"))  && winnerMessage == 0) {
+                document.getElementById("status").innerHTML = "Congratulations! O is the Winner!" ;
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+            else if (((stat[1] == "X" && stat[4] == "X" && stat[7] == "X")) && winnerMessage == 0){
+                document.getElementById("status").innerHTML = "Congratulations! X is the Winner!";
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+
+            }
+            else if ( ((stat[1] == "O" && stat[4] == "O" && stat[7] == "O"))  && winnerMessage == 0) {
+                document.getElementById("status").innerHTML = "Congratulations! O is the Winner!" ;
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+            else if (((stat[2] == "X" && stat[5] == "X" && stat[8] == "X")) && winnerMessage == 0){
+                document.getElementById("status").innerHTML = "Congratulations! X is the Winner!";
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+
+            }
+            else if ( ((stat[2] == "O" && stat[5] == "O" && stat[8] == "O"))  && winnerMessage == 0) {
+                document.getElementById("status").innerHTML = "Congratulations! O is the Winner!" ;
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+
+            else if (((stat[0] == "X" && stat[4] == "X" && stat[8] == "X")) && winnerMessage == 0){
+                document.getElementById("status").innerHTML = "Congratulations! X is the Winner!";
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+
+            }
+            else if ( ((stat[0] == "O" && stat[4] == "O" && stat[8] == "O"))  && winnerMessage == 0) {
+                document.getElementById("status").innerHTML = "Congratulations! O is the Winner!" ;
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+            else if (((stat[2] == "X" && stat[4] == "X" && stat[6] == "X")) && winnerMessage == 0){
+                document.getElementById("status").innerHTML = "Congratulations! X is the Winner!";
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+
+            }
+            else if ( ((stat[2] == "O" && stat[4] == "O" && stat[6] == "O"))  && winnerMessage == 0) {
+                document.getElementById("status").innerHTML = "Congratulations! O is the Winner!" ;
+                document.getElementById("status").classList.add("you-won");
+                winnerMessage = 1;
+                Array = [];
+            }
+
+
+        }
+
+
+
         
 
     }    
